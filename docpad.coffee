@@ -106,6 +106,7 @@ docpadConfig = {
 		ghpages:
 	    deployBranch: 'master'
 	    deployRemote: 'pages'
+	    
 		downloader:
 			downloads: [
 				{

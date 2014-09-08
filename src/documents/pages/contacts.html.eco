@@ -1,13 +1,36 @@
 ---
 title: Contatti
-layout: page
+layout: default
 pageOrder: 2
 ---
 
-<nav class="linklist">
-	<% for document in @getCollection('posts').toJSON(): %>
-		<li><span><%= document.date.toDateString() %></span>
-		&raquo;
-		<a href="<%= document.url %>"><%= document.title %></a></li>
-	<% end %>
-</nav>
+<article id="archive" class="article">
+	
+	<div class="article-header cover" style="background-image:url('/images/contacts-head.jpg');background-size: auto auto;background-attachment: center center"></div>
+
+	<div class="article-body">
+		<div class="article-title container">
+			<h1><%= @document.title %></h1>
+		</div>	
+		
+		<div class="article-content">
+			<p>
+				<strong>Plebe</strong> è redatto dal <strong>Laboratorio Politico Jacob</strong>.<br>
+				Siamo a Foggia in Via Mario Pagano, 38.
+			</p>
+			<p>
+				Oppure puoi trovarci su internet, a questi indirizzi:
+				<ul class="">
+					<li><a href="">Facebook</a></li>
+					<li><a href="">Email</a></li>
+				</ul>
+			</p>
+		</div>
+</article>
+
+<div class="container">
+
+
+	
+</div>
+

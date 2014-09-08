@@ -1,13 +1,46 @@
 ---
 title: Archivio
-layout: page
+layout: default
 pageOrder: 2
 ---
 
-<nav class="linklist">
-	<% for document in @getCollection('posts').toJSON(): %>
-		<li><span><%= document.date.toDateString() %></span>
-		&raquo;
-		<a href="<%= document.url %>"><%= document.title %></a></li>
-	<% end %>
-</nav>
+<% issue = @document.issue %>
+
+<article id="archive" class="article">
+	
+	<div class="article-header cover" style="background-image:url('/images/archive-head.jpg');background-attachment:center center;background-size:auto auto"></div>
+
+	<div class="article-body">
+		<div class="article-title container">
+			<h1><%= @document.title %></h1>
+		</div>	
+		
+		<div class="article-content">
+
+			<ul class="unstyled issue-list clearfix">
+				<% _prevIssue = 0 %>
+					<% for document, i in @getCollection('issues').toJSON(): %>
+						<% if _prevIssue isnt document.issue: %>
+							<li>
+								<a href="/issues/<%= document.issue %>" class="issue-media">
+									<div class="issue-cover">
+										<img src="/images/covers/<%= document.issue %>-small.jpg" alt="plebe nr. <%= document.issue %>">
+									</div>
+									<div class="issue-text">
+										<%= document.issue %>
+									</div>
+								</a>
+							</li>
+						<% end %>
+						<% _prevIssue = document.issue %>
+					<% end %>
+			</ul>
+
+		</div>
+</article>
+
+<div class="container">
+
+
+	
+</div>

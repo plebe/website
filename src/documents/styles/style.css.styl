@@ -54,6 +54,10 @@ body
 
 		&:hover
 			color: #333
+
+	&.sticky
+		background: #fff
+		border-bottom 1px solid #ddd
 	
 // main navigation items
 .navbar .navbar-nav 
@@ -64,9 +68,12 @@ body
 
 		span
 			border-bottom 2px solid transparent
-			padding-bottom .35rem
+			padding-bottom .75rem
 			
-		&:hover 
+	> li:hover,
+	> .active
+		a
+			background transparent
 			color #333
 
 			span
@@ -144,6 +151,35 @@ card(bg, fg, separator, link)
 
 // reusable blocks
 // ===============
+
+// issue-list
+.issue-list
+	padding 0
+	margin 0
+	padding-bottom 4rem
+	list-style none
+	
+	> li
+		display inline-block
+		margin-right 20px
+
+	> li a 
+		@extend .headset
+		display block
+		padding 2rem
+		background #fff
+		max-width 220px
+		border 1px solid #ddd
+		font-size 3rem
+		text-align center
+		color #999
+		text-decoration none
+		
+		img 
+			max-width 100%
+
+		&:hover
+			color #444
 
 // issue-summary
 .issue-summary
