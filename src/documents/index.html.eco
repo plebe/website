@@ -1,0 +1,50 @@
+---
+layout: 'default'
+title: 'Home'
+---
+
+
+<% issues = @getCollection('issues').toJSON() %>
+<% issueDate = issues[0].issueDate %>	
+<% lastIssue = issues[0].issue %>	
+<% quote = issues[0].quote %>	
+
+
+<div class="jumbotron cover row" style="background-image:url('images/covers/<%= lastIssue %>-big.jpg')">
+	
+	<div class="container">
+		<div class="card-black last-issue-card col-md-5">
+			<div class="card-header">
+				<div class="card-title">
+					<h1>
+						<a href="issues/<%= lastIssue %>#disqus_thread">
+							Numero <%= lastIssue %>
+							<span class="issue-month"><%= issueDate %></span>
+						</a>
+					</h1>
+					
+				</div>
+			</div>
+			
+			<div class="card-body">
+				<ul class="list-unstyled issue-summary">
+					<% for article in issues: %>
+					 	<% if article.title isnt "index": %>
+							<% if article.issue is lastIssue: %>
+								<li>
+									<a href="<%= article.url %>">
+										<%= article.title %>
+										<% if article.subtitle: %>
+										<br><span class="article-subtitle"><%= article.subtitle %></span>
+										<% end %>
+									</a>
+								</li>
+							<% end %>
+						<% end %>		
+					<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</div>

@@ -42,7 +42,10 @@ docpadConfig = {
 			# Styles
 			styles: [
 				"/styles/twitter-bootstrap.css"
-				"/styles/style.css"
+				"/styles/style.css",
+				"/styles/rrsb.css",
+				"http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700",
+				"http://fonts.googleapis.com/css?family=Crimson+Text:700,400,700italic,400italic"
 			]
 
 			# Scripts
@@ -91,11 +94,18 @@ docpadConfig = {
 		posts: (database) ->
 			database.findAllLive({tags:$has:'post'}, [date:-1])
 
+		issues: ->
+			@getCollection("html").findAllLive({relativeOutDirPath: /issues[\/\\]\w+/, order:$exists:true}, [issue:-1,order:1])
+
+
 
 	# =================================
 	# Plugins
 
 	plugins:
+		ghpages:
+	    deployBranch: 'master'
+	    deployRemote: 'pages'
 		downloader:
 			downloads: [
 				{

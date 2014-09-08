@@ -1,0 +1,21 @@
+---
+title: "index"
+layout: "issue"
+quote: "Questo nulla non ci annullerà"
+issueDate: "Luglio/Agosto 2014"
+issue: 51
+order: -1
+---
+
+<% issues = @getCollection('issues').toJSON() %>
+<% lastIssue = parseInt @document.relativeDirPath.replace('issues/','') %>	
+
+<ul class="list-unstyled issue-summary">
+	<% for article in issues: %>
+		<% if article.issue is lastIssue: %>
+			<li>
+				<a href="<%= article.url %>"><%= article.title %></a>
+			</li>
+		<% end %>		
+	<% end %>
+</ul>

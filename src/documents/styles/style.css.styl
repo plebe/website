@@ -1,12 +1,231 @@
 @import 'nib'
 
+text-column-width=720px
+
 a, a:link
 	cursor pointer
 
-body
-	padding-top 60px
 
-table
-	tfoot, tbody
-		th
-			border-top 1px solid #DDD
+html
+	font-size 15px
+	
+	@media screen and (min-width: 480px)
+		font-size 16px
+
+	@media screen and (min-width: 992px)
+		font-size 18px
+
+	@media screen and (min-width: 1280px)
+		font-size 20px
+
+
+
+// typography
+// ===============================================
+
+// headset
+.headset
+	font-family Roboto Condensed, Helvetica Neue, Helvetica, sans-serif
+
+.copy
+	font-family Crimson Text, Georgia, serif
+
+// headers
+h1,
+h2,
+h3
+	@extend .headset
+
+// body
+body 
+	padding-top 0
+	background #f9f9f9
+
+// navbar
+.navbar
+	background transparent
+	border-bottom none
+	@extend .headset
+
+	.navbar-brand
+		font-size 1.5rem
+		margin-right 1rem
+		text-transform uppercase
+
+		&:hover
+			color: #333
+	
+// main navigation items
+.navbar .navbar-nav 
+	> li a
+		text-transform uppercase
+		font-weight bold
+		letter-spacing .1rem
+
+		span
+			border-bottom 2px solid transparent
+			padding-bottom .35rem
+			
+		&:hover 
+			color #333
+
+			span
+				border-bottom-color #333
+				
+				
+		
+// jumbotron
+.jumbotron.cover
+	padding-top: 5rem
+	background-size cover
+	height 100vh
+
+// cards
+// ===========================
+card(bg, fg, separator, link)
+	background bg
+	color: fg
+	padding 0
+	border 1px solid separator
+	
+	// links
+	a, a:active
+		color darken(fg, 25%)
+
+	.card-header
+		padding .75rem 1rem
+		border-bottom 1px solid separator
+		line-height 1
+		
+		.card-title
+			h1
+				text-transform uppercase 
+				margin 0
+				font-size 1.5rem
+				line-height 1
+
+			a
+				text-decoration none
+	
+	.card-body
+		font-size 1rem
+		
+.card 
+	card #fff, #444, #efefef, #fff
+
+.card-black
+	card #ddd, #444, #ccc, #444
+
+// custom cards
+// ============
+.last-issue-card
+	@media screen and (min-width: 992px)
+		margin-top 20vh
+		margin-right 5rem
+
+	.card-header
+		position relative
+		
+		.issue-month
+			display block
+			margin 0
+			line-height 1
+			font-size .75rem
+			color #d3d3d3
+			text-transform uppercase
+
+		@media screen and (min-width: 992px)
+			h1, .issue-month
+				display inline-block
+
+			.issue-month
+				font-size 1.5rem
+
+
+// reusable blocks
+// ===============
+
+// issue-summary
+.issue-summary
+	padding .5rem 1rem
+	@extend .copy
+
+	> li a
+		display block
+		font-size 1rem
+		border-bottom 1px solid #f9f9f9
+		font-weight bold
+		line-height 1.2
+		padding .5rem 0
+
+		.article-subtitle
+			display block
+			font-weight 100
+			font-size .8em
+
+
+	> li:last-child a
+			border-bottom none
+
+.card-black 
+	.card-header .issue-month
+		color #999
+
+	.issue-summary
+		> li a
+			border-bottom-color #ccc
+
+
+// pages
+// ======
+
+// article
+.article
+	.article-header
+		min-height 50vh
+		background-size cover
+		background-attachment fixed
+	
+	// article share
+	.article-share 
+		.rrssb-buttons > li a
+			padding-left 1rem
+			padding-right 1rem
+			@extend .headset
+
+			.text
+				margin-left 1rem
+		
+	.article-body
+		padding 0 2rem 2rem
+
+		.article-title
+			margin 0 auto
+			padding 3rem 0 4rem
+			
+			h1
+				font-size 3rem
+
+			@media screen and (min-width: 992px)
+				max-width text-column-width
+		
+			
+
+		p,
+		ul,
+		blockquote,
+		cite
+			@extend .copy
+			max-width text-column-width
+			margin 0 auto
+			line-height 1.4
+			font-size 1.15rem
+			margin-bottom 2rem
+			-webkit-font-smoothing antialiased
+	
+	.article-disqus
+		margin 0 auto
+		padding-bottom 4rem
+		max-width text-column-width
+
+	

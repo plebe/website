@@ -1,0 +1,23 @@
+---
+layout: default
+---
+
+<% issue = @document.issue %>
+
+<div class="jumbotron cover row" style="background-image:url('/images/covers/<%= issue %>-big.jpg')">
+	
+	<div class="card last-issue-card col-md-5">
+		<div class="card-header">
+			<div class="card-title">
+				<h1>Numero <%= issue %></h1>
+			</div>
+		</div>
+
+		<div class="card-body">
+			<div class="article-content">
+			<%- @content %>
+		</div>
+		</div>
+	</div>
+	
+</div>
